@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Student Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        <tabel>
+            {{form.as_table}}
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </tabel>
+
+    </form>
+    <hr/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Qualification</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.student_name}}</td>
+                <td>{{s.qualification}}</td>
+                <td>{{s.city}}</td>
+            </tr>
+            {% endform %}
+        </tbody>
+    </table>
+</body>
+</html>
